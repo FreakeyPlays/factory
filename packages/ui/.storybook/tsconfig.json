@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.lib.json",
+  "compilerOptions": {
+    "rootDir": "..",
+    "declaration": false,
+    "declarationMap": false,
+    "outDir": "../out-tsc/storybook",
+    "types": ["bun", "vite/client"],
+    "resolveJsonModule": true
+  },
+  "include": ["../src/**/*.ts", "./*.ts"],
+  "exclude": ["../src/**/*.spec.ts"],
+  "files": ["./typings.d.ts"]
+}

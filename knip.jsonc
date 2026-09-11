@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/knip/schema-jsonc.json",
+  "rules": { "types": "off" },
+  "tags": ["-@wip"],
+  "workspaces": {
+    ".": {
+      "project": ["*.{js,mjs,cjs,ts,mts,cts}"],
+      "stryker": false,
+      "ignoreDependencies": [
+        "@angular-eslint/eslint-plugin",
+        "varlock",
+        "@varlock/bitwarden-plugin",
+      ],
+    },
+    "apps/client": {
+      "ignoreBinaries": ["rustc", "lipo"],
+    },
+    "apps/server": {
+      "entry": ["src/bin.ts!"],
+      "project": ["src/**/*.ts!"],
+    },
+    "packages/*": {
+      "project": ["src/**/*.ts!"],
+      "includeEntryExports": true,
+    },
+  },
+}

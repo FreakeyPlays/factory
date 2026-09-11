@@ -1,0 +1,31 @@
+{
+  "extends": "../../tsconfig.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "noEmit": false,
+    "allowImportingTsExtensions": false
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./scripts/tsconfig.json"
+    },
+    {
+      "path": "./projects/desktop/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/desktop/tsconfig.spec.json"
+    }
+  ]
+}

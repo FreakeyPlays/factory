@@ -1,0 +1,6 @@
+env = false
+
+[install]
+minimumReleaseAge = 259200
+linker = "isolated"
+frozenLockfile = true

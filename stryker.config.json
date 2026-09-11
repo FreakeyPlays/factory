@@ -1,0 +1,38 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "testRunner": "command",
+  "commandRunner": {
+    "command": "vp run test"
+  },
+  "coverageAnalysis": "off",
+  "//mutate": "Only runtime source. Build scripts and vite configs have no tests, so mutating them only adds survivors.",
+  "mutate": [
+    "{apps/server/src,apps/client/projects/*/src,packages/*/src}/**/!(*.d|*.test|*.spec|*.stories).ts",
+    "!apps/client/projects/desktop/src/main.ts",
+    "!apps/client/projects/desktop/src/app/app.config.ts",
+    "!apps/client/projects/desktop/src/app/app.routes.ts"
+  ],
+  "concurrency": 2,
+  "//timeoutMS": "Every mutant reruns the whole suite, and two suites share the CPU; a tight timeout reports slow runs as detected mutants.",
+  "timeoutMS": 30000,
+  "//disableTypeChecks": "Mutant switches widen inferred types. This covers the TypeScript compiler; Angular's template checker is relaxed for tests in apps/client/projects/desktop/tsconfig.spec.json. Stryker's default only covers a top-level {test,src,lib}/**, which nothing in this layout matches, so this glob has to cover `mutate` above.",
+  "disableTypeChecks": "{apps,packages}/**/*.{js,ts,jsx,tsx,html,cts,mts}",
+  "thresholds": { "high": 90, "low": 80, "break": 90 },
+  "reporters": ["clear-text", "progress", "html"],
+  "htmlReporter": { "fileName": "reports/mutation/index.html" },
+  "//ignorePatterns": "These decide what Stryker copies into its sandbox. `target/**` is the Rust build directory; without it every run duplicates gigabytes.",
+  "ignorePatterns": [
+    ".agents/**",
+    ".claude/**",
+    "docs/**",
+    "scripts/**",
+    ".github/**",
+    ".env*",
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/coverage/**",
+    "**/.angular/**",
+    "**/target/**",
+    "reports/**"
+  ]
+}

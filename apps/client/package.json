@@ -1,0 +1,47 @@
+{
+  "name": "@factory/client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "dev": "ng serve desktop",
+    "build": "ng build desktop",
+    "typecheck": "tsc -p projects/desktop/tsconfig.app.json --noEmit && tsc -p projects/desktop/tsconfig.spec.json --noEmit && tsc -p scripts/tsconfig.json",
+    "watch": "ng build desktop --watch --configuration development",
+    "test": "ng test --watch=false",
+    "test:desktop": "ng test desktop --watch=false",
+    "tauri": "tauri",
+    "tauri:fmt": "cargo fmt --manifest-path src-tauri/Cargo.toml --all --check",
+    "tauri:lint": "cargo clippy --manifest-path src-tauri/Cargo.toml --all-targets --locked -- -D warnings",
+    "tauri:test": "cargo test --manifest-path src-tauri/Cargo.toml --locked"
+  },
+  "dependencies": {
+    "@angular/common": "catalog:angular",
+    "@angular/compiler": "catalog:angular",
+    "@angular/core": "catalog:angular",
+    "@angular/platform-browser": "catalog:angular",
+    "@angular/router": "catalog:angular",
+    "@factory/contracts": "workspace:*",
+    "@factory/shared": "workspace:*",
+    "@factory/ui": "workspace:*",
+    "@tauri-apps/api": "^2.11.1",
+    "rxjs": "catalog:angular",
+    "tslib": "catalog:"
+  },
+  "devDependencies": {
+    "@angular/animations": "catalog:angular",
+    "@angular/build": "catalog:angular",
+    "@angular/cli": "catalog:angular",
+    "@angular/compiler-cli": "catalog:angular",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tauri-apps/cli": "^2.11.4",
+    "@types/bun": "catalog:",
+    "jsdom": "catalog:",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.12",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:"
+  }
+}

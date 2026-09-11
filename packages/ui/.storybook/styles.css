@@ -1,0 +1,4 @@
+/* Global styles for the @factory/ui Storybook preview. */
+
+@import "tailwindcss";
+@source "../src";
